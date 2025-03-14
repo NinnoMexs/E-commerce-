@@ -1,7 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { products } from "../components/products";
 import { useCart } from "../components/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -26,11 +28,24 @@ const ProductDetails = () => {
   // Handle Add to Cart action
   const handleAddToCart = () => {
     addToCart({ ...product, quantity });
-    alert(`Added ${quantity} ${product.name}(s) to the cart!`);
+
+    // Use toast notification
+    toast.success(`Added ${quantity} ${product.name}(s) to the cart!`, {
+      position: "top-right",
+      autoClose: 3000, // Closes after 3 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   return (
     <div className="max-w-7xl mx-auto p-6">
+      <ToastContainer /> {/* This is required for toasts to work */}
+
       <div className="bg-white rounded-lg shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Product Image Section */}
         <div className="relative">
@@ -72,7 +87,7 @@ const ProductDetails = () => {
             {/* Add to Cart Button */}
             <button
               onClick={handleAddToCart}
-              className="w-full bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+              className="w-full bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300 cursor-pointer"
             >
               Add to Cart
             </button>

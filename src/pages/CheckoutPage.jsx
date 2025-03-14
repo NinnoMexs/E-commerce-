@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import FinishedCheckout from '../components/FinishedCheckout'; // Import the FinishedCheckout component
 
 function CheckoutPage() {
   const location = useLocation();
+  const navigate = useNavigate(); // Initialize useNavigate
   const { cart, totalPrice } = location.state || { cart: [], totalPrice: 0 };
 
   const [formData, setFormData] = useState({
@@ -72,6 +75,25 @@ function CheckoutPage() {
     if (validateForm()) {
       // Set isOrderPlaced to true to display the FinishedCheckout component
       setIsOrderPlaced(true);
+
+      // Display "Checkout Complete" message after 5 seconds
+      setTimeout(() => {
+        toast.success('Checkout Complete!', {
+          position: 'top-right',
+          autoClose: 3000, // Closes after 3 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
+
+        // Redirect to the home page after the toast notification
+        setTimeout(() => {
+          navigate('/'); 
+        }, 4000); 
+      }, 5000); 
     } else {
       console.log('Form has errors');
     }
@@ -82,9 +104,12 @@ function CheckoutPage() {
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold text-gray-800 mb-8">Checkout</h1>
 
+        {/* Toast Container for Notifications */}
+        <ToastContainer />
+
         {/* Display FinishedCheckout component if order is placed */}
         {isOrderPlaced && (
-          <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 ">
+          <div className="fixed inset-0 flex items-center justify-center  bg-opacity-50 z-50">
             <FinishedCheckout />
           </div>
         )}
