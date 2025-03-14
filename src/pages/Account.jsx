@@ -2,6 +2,7 @@ import { useState } from 'react';
 import FloatingLabelInput from '../components/FloatingLabelInput';
 import Checkbox from '../components/Checkbox';
 import Button from '../components/Buttons'; 
+import { Link } from 'react-router-dom';
 
 const AccountsPage = () => {
   const [fullName, setFullName] = useState('');
@@ -118,7 +119,7 @@ const AccountsPage = () => {
           </button>
 
           <div className='mt-3 text-center'>
-            <p>Don't have an Account?   <span className='font-semibold text-blue-900 underline cursor-pointer hover:text-blue-500'>Sign Up</span></p>
+            <p>Already having Account?   <span className='font-semibold text-blue-900 underline cursor-pointer hover:text-blue-500'> <Link to={"/SignIn"}>Sign In</Link></span></p>
           </div>
 
         </form>

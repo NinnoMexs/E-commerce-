@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { IoLogoElectron } from 'react-icons/io5';
 import { TiWorld } from 'react-icons/ti';
 import { FaBars, FaRegHeart, FaTimes } from 'react-icons/fa'; // Import hamburger and close icons
-import MegaMenu from './Megamenu';
+import MegaMenu4 from './Megamenu4';
 import SearchInput from './SearchInput'
 import { AiOutlineUser } from 'react-icons/ai';
 import { LiaShoppingCartSolid } from 'react-icons/lia';
 import LogiIDDropdown from './LogIDDropdown';
 import { useCart } from './CartContext';
 import { Link } from 'react-router-dom';
+import Megamenu2 from './Megamenu2';
+import Megamenu3 from './Megamenu3';
+import Megamenu2mobile from './Megamenu2mobile';
+import Megamenu3mobile from './Megamenu3mobile';
 
 function Navbar() {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
@@ -107,16 +111,15 @@ function Navbar() {
           >
             ☰
           </button>
+          <Link to={"/"}>
           <h1 className="px-7 font-semibold text-5xl cursor-pointer">GevMexs</h1>
+          </Link>
         </div>
 
         {/* Navigation Links (Desktop) */}
         <ul className="hidden md:flex text-xl items-center">
-          <li className="px-3">
-            <MegaMenu />
-          </li>
-          <li className="px-3 text-center cursor-pointer">Planet & People</li>
-          <li className="px-3 cursor-pointer">Software</li>
+          <li className="px-3 text-center cursor-pointer"><Megamenu2/></li>
+          <li className="px-3 cursor-pointer"><Megamenu3 /></li>
           <li className="px-3 cursor-pointer">Offers</li>
         </ul>
 
@@ -157,11 +160,8 @@ function Navbar() {
         className={`md:hidden ${isMenuOpen ? "block" : "hidden"} bg-white shadow-lg`}
       >
         <ul className="flex flex-col text-xl p-4 ">
-          <li className="py-2">
-            <MegaMenu />
-          </li>
-          <li className="py-2">Planet & People</li>
-          <li className="py-2">Software</li>
+          <li className="py-2"><Megamenu2mobile /></li>
+          <li className="py-2"><Megamenu3mobile /></li>
           <li className="py-2">Offers</li>
           <li className="py-2 px-5 bg-slate-200 rounded-full">
             <SearchInput />
@@ -174,6 +174,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
+      <MegaMenu4 />
     </div>
     </div>
     

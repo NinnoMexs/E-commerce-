@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 function LogiIDDropdown() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -54,9 +55,11 @@ function LogiIDDropdown() {
               setIsDropdownOpen(false); // Close dropdown after clicking
             }}
           >
+            <Link to={"/SignIn"}>
             REGISTER
+            </Link>
           </button>
-
+           
           <button
             className="w-full bg-black font-semibold text-white py-2 rounded-full hover:bg-stone-800 transition-colors duration-300 mt-3 cursor-pointer"
             onClick={() => {
@@ -64,7 +67,9 @@ function LogiIDDropdown() {
               setIsDropdownOpen(false); // Close dropdown after clicking
             }}
           >
+            <Link to={"/account"}>
             CREATE ACCOUNT
+            </Link>
           </button>
 
           {/* Secondary Link */}
@@ -73,7 +78,7 @@ function LogiIDDropdown() {
             className="block text-center text-sm text-blue-500 hover:text-blue-700 mt-3 cursor-pointer"
             onClick={() => setIsDropdownOpen(false)} // Close dropdown after clicking
           >
-            INFO ABOUT LOGI ID
+            INFO ABOUT MEXS ID
           </a>
         </div>
       )}

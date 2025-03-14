@@ -2,6 +2,7 @@ import { useState } from 'react';
 import FloatingLabelInput from '../components/FloatingLabelInput';
 import { IoLogoElectron } from 'react-icons/io5';
 import Button from '../components/Buttons';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -90,7 +91,7 @@ const SignIn = () => {
           </button>
 
           <div className='mt-7 flex justify-around'>
-            <p>Don't have an Account?   <span className='ml-25 font-semibold text-blue-900 underline cursor-pointer hover:text-blue-500'>Sign Up</span></p>
+            <p>Don't have an Account?   <span className='ml-25 font-semibold text-blue-900 underline cursor-pointer hover:text-blue-500'><Link to={"/account"}>Sign Up</Link></span></p>
           </div>
          
 
