@@ -13,7 +13,7 @@ const Megamenu2 = () => {
       onMouseLeave={() => setIsOpen(false)}
     >
       {/* Navbar Item */}
-      <button  className="text-black  font-semibold px-4 py-4 hover:text-orange-600 transition duration-300">
+      <button  className="text-black  font-semibold px-4 py-4 hover:text-orange-600 transition duration-300 cursor-pointer">
         Trade Assurance
       </button>
 
@@ -27,7 +27,7 @@ const Megamenu2 = () => {
             <div className="w-1/3 pr-10 flex flex-col items-start">
               <h3 className="text-2xl font-semibold mb-3">Trade Assurance</h3>
               <p className="text-gray-600 mb-6 text-start text-3xl ">Enjoy protection from payment to delivery.</p>
-              <button className="bg-orange-500 text-sm font-semibold text-white px-10 py-2 rounded-full hover:bg-orange-600 transition">
+              <button className="bg-orange-500 text-sm font-semibold text-white px-10 py-2 rounded-full hover:bg-orange-600 transition cursor-pointer">
                 Learn more
               </button>
             </div>
@@ -35,7 +35,7 @@ const Megamenu2 = () => {
             {/* Right Side: Grid Layout */}
             <div className="w-2/3 grid grid-cols-2 md:grid-cols-2 gap-6">
               <div className="p-4 py-7 bg-gray-100 rounded-lg flex items-center hover:bg-gray-100 cursor-pointer">
-                <span className="bg-yellow-400 p-3 rounded-full mr-4"><RiShieldCheckLine /></span>
+                <span className="bg-yellow-500 p-3 rounded-full mr-4"><RiShieldCheckLine /></span>
                 <h4 className="font-semibold">Safe & easy payments</h4>
                 <FaArrowRight className="ml-10"/>
               </div>

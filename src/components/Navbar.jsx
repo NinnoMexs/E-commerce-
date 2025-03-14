@@ -128,10 +128,10 @@ function Navbar() {
           <li className="px-5 bg-slate-200 pl-20 py-2 rounded-full">
             <SearchInput />
           </li>
-          <li className="px-5">
+          <li className="px-5 cursor-pointer">
             <FaRegHeart />
           </li>
-          <li className="px-3 z-1">
+          <li className="px-3 z-1 cursor-pointer">
             <LogiIDDropdown />
           </li>
            <Link to="/cart" className="relative text-3xl hover:text-gray-300">
